@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connect4</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <h1>Connect4</h1>
+    <div id="board-container">
+        <div th:each="row, iterStat : ${board}"> <div class="row">
+                <button th:each="cellValue, col : ${row.toArray()}" th:classappend="${cellValue == 1 ? 'player-one' : cellValue == 2 ? 'player-two' : ''}"
+                        th:attr="data-col=${col}" onclick="handleClick(this)">
+                </button>
+            </div>
+        </div>
+    </div>
+    <p id="message" th:text="${message}"></p>
+    <button id="reset-button" onclick="resetGame()">Reset Game</button>
+
+    <script src="script.js"></script> </body>
+</html>
